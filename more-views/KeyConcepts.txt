@@ -1,0 +1,6 @@
+KEY CONCEPTS
+- Delegation
+- Laying out view programmatically
+- Creating View Controllers programmatically
+- segue-ing to another view controller programmatically
+- view life cycle methods
