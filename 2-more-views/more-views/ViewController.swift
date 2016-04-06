@@ -68,8 +68,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func btnNextAction(btn: UIButton){
         print("btnNextAction")
-        
         let forumVc = DKForumViewController()
+        forumVc.selectedTeam = self.teamLabel.text
         self.navigationController?.pushViewController(forumVc, animated: true)
         
     }

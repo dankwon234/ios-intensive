@@ -12,12 +12,14 @@ class DKForumViewController: UIViewController, UITextFieldDelegate {
     
     var commentField: UITextField!
     var comments = Array<String>()
+    var teamImage: UIImageView!
+    var selectedTeam: String!
     
     override func loadView() {
         self.edgesForExtendedLayout = .None
         let frame = UIScreen.mainScreen().bounds
         let view = UIView(frame: frame)
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.whiteColor()
         
         self.commentField = UITextField(frame: CGRect(x: 20, y: 20, width: frame.size.width-40, height: 32))
         self.commentField.delegate = self
@@ -26,6 +28,29 @@ class DKForumViewController: UIViewController, UITextFieldDelegate {
         self.commentField.backgroundColor = UIColor.whiteColor()
         self.commentField.borderStyle = .RoundedRect
         view.addSubview(self.commentField)
+        
+        var image: UIImage!
+        if (self.selectedTeam == "Mets"){
+            image = UIImage(named: "mets.png")
+            
+        }
+        if (self.selectedTeam == "Yankees"){
+            image = UIImage(named: "yankees.png")
+            
+        }
+        if (self.selectedTeam == "Red Sox"){
+            image = UIImage(named: "redsox.png")
+            
+        }
+        
+        let y = self.commentField.frame.origin.y+self.commentField.frame.size.height+20
+        self.teamImage = UIImageView(frame: CGRect(x: 0, y: y, width: 200, height: 200))
+        self.teamImage.alpha = 0.5
+        self.teamImage.center = CGPoint(x: 0.5*frame.size.width, y: self.teamImage.center.y)
+        self.teamImage.backgroundColor = UIColor.blueColor()
+        self.teamImage.image = image
+        view.addSubview(self.teamImage)
+            
         
         self.view = view
     }
