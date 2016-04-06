@@ -1,0 +1,8 @@
+KEY CONCEPTS
+- Gesture recognizers
+- Switch statements
+- UITableView
+- UITableViewDataSource, UITableViewDelegate
+- Reusable cell system
+- show alerts
+
