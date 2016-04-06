@@ -15,6 +15,7 @@
 		0C9238821CB544950026C6D8 /* leonard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C92387F1CB544950026C6D8 /* leonard@2x.png */; };
 		0C9238831CB544950026C6D8 /* rihanna@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9238801CB544950026C6D8 /* rihanna@2x.png */; };
 		0C9238841CB544950026C6D8 /* taylor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9238811CB544950026C6D8 /* taylor@2x.png */; };
+		0CF275941CB55A2300FBD701 /* DKChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF275931CB55A2300FBD701 /* DKChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0C92387F1CB544950026C6D8 /* leonard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leonard@2x.png"; sourceTree = "<group>"; };
 		0C9238801CB544950026C6D8 /* rihanna@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rihanna@2x.png"; sourceTree = "<group>"; };
 		0C9238811CB544950026C6D8 /* taylor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taylor@2x.png"; sourceTree = "<group>"; };
+		0CF275931CB55A2300FBD701 /* DKChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0C92387E1CB544950026C6D8 /* images */,
 				0C92386C1CB541AE0026C6D8 /* AppDelegate.swift */,
 				0C92386E1CB541AE0026C6D8 /* ViewController.swift */,
+				0CF275931CB55A2300FBD701 /* DKChatViewController.swift */,
 				0C9238701CB541AE0026C6D8 /* Main.storyboard */,
 				0C9238731CB541AE0026C6D8 /* Assets.xcassets */,
 				0C9238751CB541AE0026C6D8 /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C92386F1CB541AE0026C6D8 /* ViewController.swift in Sources */,
+				0CF275941CB55A2300FBD701 /* DKChatViewController.swift in Sources */,
 				0C92386D1CB541AE0026C6D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +310,7 @@
 				0C92387D1CB541AE0026C6D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

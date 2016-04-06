@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var imageRihanna: UIImageView!
     @IBOutlet var imageLeonardo: UIImageView!
     @IBOutlet var imageTaylorSwift: UIImageView!
+    @IBOutlet var selectedLabel: UILabel!
     
 
     override func viewDidLoad() {
@@ -29,8 +30,27 @@ class ViewController: UIViewController {
     }
     
     func selectCelebrity(sender: UIGestureRecognizer){
+        let view = sender.view
+        print("selectCelebrity: \(view!.tag)")
         
-        print("selectCelebrity: ")
+        switch view!.tag {
+        case 0:
+            self.selectedLabel.text = "Leonardo DiCaprio"
+        case 1:
+            self.selectedLabel.text = "Rihanna"
+        case 2:
+            self.selectedLabel.text = "Taylor Swift"
+        default:
+            self.selectedLabel.text = ""
+        }
+    }
+    
+    @IBAction func showChatViewController(){
+        print("showChatViewController")
+        
+        let chatVc = DKChatViewController()
+        chatVc.title = self.selectedLabel.text
+        self.navigationController?.pushViewController(chatVc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
