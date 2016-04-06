@@ -56,10 +56,19 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         textField.resignFirstResponder()
         
         let comment = textField.text
+        if (comment?.characters.count == 0){
+            let alert = UIAlertController(title: "Help!", message: "I'm trapped in an alert box", preferredStyle: .Alert)
+            
+            let okBtn = UIAlertAction(title: "I'll save you", style: .Default, handler: nil)
+            alert.addAction(okBtn)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        
         self.commentsArray.append(comment!)
         self.chatTable.reloadData()
         textField.text = nil
-        
         
         
         
