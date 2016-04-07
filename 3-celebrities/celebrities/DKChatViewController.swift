@@ -93,8 +93,8 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
         self.chatField.resignFirstResponder()
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
