@@ -15,10 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet var imageTaylorSwift: UIImageView!
     @IBOutlet var selectedLabel: UILabel!
     
+    var celebritiesDict = [String: DKCelebrity]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let leonardoDiCaprio = DKCelebrity()
+        leonardoDiCaprio.name = "Leonardo DiCaprio"
+        leonardoDiCaprio.image = "leonard.png"
+        self.celebritiesDict[leonardoDiCaprio.name] = leonardoDiCaprio
+
+        let rihanna = DKCelebrity()
+        rihanna.name = "Rihanna"
+        rihanna.image = "rihanna.png"
+        self.celebritiesDict[rihanna.name] = rihanna
+
+        let taylorSwift = DKCelebrity()
+        taylorSwift.name = "Taylor Swift"
+        taylorSwift.image = "taylor.png"
+        self.celebritiesDict[taylorSwift.name] = taylorSwift
+        
+
         let celebrities = [self.imageRihanna, self.imageLeonardo, self.imageTaylorSwift]
         
         for celebrityImage in celebrities {
@@ -49,7 +66,8 @@ class ViewController: UIViewController {
         print("showChatViewController")
         
         let chatVc = DKChatViewController()
-        chatVc.title = self.selectedLabel.text
+        let selectedCelebrity = self.celebritiesDict[self.selectedLabel.text!]
+        chatVc.selectedCelebrity = selectedCelebrity
         self.navigationController?.pushViewController(chatVc, animated: true)
     }
 

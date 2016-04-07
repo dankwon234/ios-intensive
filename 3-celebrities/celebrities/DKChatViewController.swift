@@ -13,6 +13,7 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Properties
     var chatTable: UITableView!
     var commentsArray = Array<String>()
+    var selectedCelebrity: DKCelebrity!
     
     // MARK: - My Stuff
 
@@ -25,6 +26,7 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - LifeCycle Methods
 
     override func loadView() {
+        self.title = self.selectedCelebrity.name
         self.commentsArray.append("HEY!")
         self.commentsArray.append("This is awesome")
         self.commentsArray.append("I'm hungry")
