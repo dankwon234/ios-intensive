@@ -10,3 +10,4 @@ April 7
 - didSelectRowAtIndexPath
 - refactoring
 - Model View Controller
+- Study: UIActivityIndicator, UISwitch, UISlider, UIPageControl, UIPickerView

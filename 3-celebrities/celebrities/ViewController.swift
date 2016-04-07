@@ -43,7 +43,20 @@ class ViewController: UIViewController {
             let tapGesture = UITapGestureRecognizer(target: self, action: selector)
             celebrityImage.addGestureRecognizer(tapGesture)
         }
+        
+        let stepper = UIStepper(frame: CGRect(x: 10, y: 300, width: 120, height: 36))
+        stepper.value = 0
+        stepper.stepValue = 5
+        stepper.maximumValue = 30
+        stepper.tintColor = UIColor.greenColor()
+        stepper.addTarget(self, action: "stepperChanged:", forControlEvents: .ValueChanged)
+        self.view.addSubview(stepper)
 
+    }
+    
+    func stepperChanged(stepper: UIStepper){
+        print("stepperChanged: \(stepper.value)")
+        
     }
     
     func selectCelebrity(sender: UIGestureRecognizer){
