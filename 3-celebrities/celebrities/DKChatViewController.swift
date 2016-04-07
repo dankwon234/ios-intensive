@@ -14,6 +14,13 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var chatTable: UITableView!
     var commentsArray = Array<String>()
     
+    // MARK: - My Stuff
+
+    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
+        let comment = self.commentsArray[indexPath.row]
+        cell.textLabel?.text = comment
+        cell.detailTextLabel?.text = "This is some details"
+    }
     
     // MARK: - LifeCycle Methods
 
@@ -72,11 +79,7 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return true
     }
     
-    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
-        let comment = self.commentsArray[indexPath.row]
-        cell.textLabel?.text = comment
-        cell.detailTextLabel?.text = "This is some details"
-    }
+
     
     // MARK: - DataSource Methods
     
