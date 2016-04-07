@@ -30,8 +30,11 @@ class DKTableViewCell: UITableViewCell {
 //        starIcon.image = UIImage(named: "star.png")
 //        self.contentView.addSubview(starIcon)
         
+//        for (var i=0; i<3; i++){ // DEPRECATED! NO!
+//            
+//        }
+        
         for var i in 0..<3{
-//            let offset = frame.size.width-(24*CGFloat(i))-28
             let offset = frame.size.width-24*(CGFloat(i)+1)-4
             let starIcon = UIImageView(frame: CGRect(x: offset, y: 4, width: 24, height: 24))
             starIcon.image = UIImage(named: "star.png")
