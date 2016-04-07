@@ -20,13 +20,23 @@ class DKTableViewCell: UITableViewCell {
         
         let frame = UIScreen.mainScreen().bounds
         
+        self.selectionStyle = .None
+        
         self.textLabel?.textColor = UIColor.redColor()
         self.imageView?.layer.cornerRadius = 40
         self.imageView?.layer.masksToBounds = true
         
-        let starIcon = UIImageView(frame: CGRect(x: frame.size.width-28, y: 4, width: 24, height: 24))
-        starIcon.image = UIImage(named: "star.png")
-        self.contentView.addSubview(starIcon)
+//        let starIcon = UIImageView(frame: CGRect(x: frame.size.width-28, y: 4, width: 24, height: 24))
+//        starIcon.image = UIImage(named: "star.png")
+//        self.contentView.addSubview(starIcon)
+        
+        for var i in 0..<3{
+//            let offset = frame.size.width-(24*CGFloat(i))-28
+            let offset = frame.size.width-24*(CGFloat(i)+1)-4
+            let starIcon = UIImageView(frame: CGRect(x: offset, y: 4, width: 24, height: 24))
+            starIcon.image = UIImage(named: "star.png")
+            self.contentView.addSubview(starIcon)
+        }
     }
     
     

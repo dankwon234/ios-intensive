@@ -8,11 +8,12 @@
 
 import UIKit
 
-class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate {
     
     // MARK: - Properties
     var chatTable: UITableView!
     var selectedCelebrity: DKCelebrity!
+    var chatField: UITextField!
     
     // MARK: - My Stuff
 
@@ -42,10 +43,10 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let chatBox = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 64))
         chatBox.backgroundColor = UIColor.yellowColor()
         
-        let chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
-        chatField.delegate = self
-        chatField.borderStyle = .RoundedRect
-        chatBox.addSubview(chatField)
+        self.chatField = UITextField(frame: CGRect(x: 10, y: 10, width: width-20, height: 44))
+        self.chatField.delegate = self
+        self.chatField.borderStyle = .RoundedRect
+        chatBox.addSubview(self.chatField)
         
         self.chatTable.tableHeaderView = chatBox
         
@@ -86,6 +87,15 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     // MARK: - DataSource Methods
+//    func scrollViewDidScroll(scrollView: UIScrollView){
+//        self.chatField.resignFirstResponder()
+//        
+//    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.chatField.resignFirstResponder()
+        
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.selectedCelebrity.comments.count // allocate number rows for the table view
@@ -116,6 +126,19 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+//        let comment = self.selectedCelebrity.comments[indexPath.row]
+//        let commentText = NSString(string: comment.text)
+//        let size =  commentText.boundingRectWithSize(CGSize(width: tableView.frame.width, height: 100),
+//                                                                         options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+//                                                                         attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+//                                                                         context: nil).size
+//        
+//        
+//        
+//        return size.height+30
+        
+        
         return 88.0
     }
     
