@@ -69,12 +69,14 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.commentsArray.append(comment!)
         self.chatTable.reloadData()
         textField.text = nil
-        
-        
-        
         return true
     }
     
+    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
+        let comment = self.commentsArray[indexPath.row]
+        cell.textLabel?.text = comment
+        cell.detailTextLabel?.text = "This is some details"
+    }
     
     // MARK: - DataSource Methods
     
@@ -84,24 +86,31 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let comment = self.commentsArray[indexPath.row]
-        
         let cellId = "cellId"
         
         // REUSE CELL:
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) {
-            cell.textLabel?.text = comment
+            self.configureCell(cell, indexPath: indexPath)
             return cell
         }
 
         // CREATE NEW CELL:
-        print("CREATE NEW CELL")
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = comment
+        self.configureCell(cell, indexPath: indexPath)
         return cell
     }
     
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let comment = self.commentsArray[indexPath.row]
+        print("didDeselectRowAtIndexPath: \(comment)")
+        
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 88.0
+    }
     
     
     override func didReceiveMemoryWarning() {

@@ -4,3 +4,8 @@ KEY CONCEPTS
 - Creating View Controllers programmatically
 - segue-ing to another view controller programmatically
 - view life cycle methods
+
+April 7
+- Delegate callback methods
+- didSelectRowAtIndexPath
+- refactoring
