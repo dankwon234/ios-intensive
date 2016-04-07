@@ -1,5 +1,5 @@
 //
-//  DKCelebrity.swift
+//  DKComment.swift
 //  celebrities
 //
 //  Created by Dan Kwon on 4/7/16.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DKCelebrity: NSObject {
+class DKComment: NSObject {
     
-    var name: String!
-    var image: String!
-    var comments = Array<DKComment>()
+    var text: String!
+    var timestamp = NSDate()
+    
 
 }

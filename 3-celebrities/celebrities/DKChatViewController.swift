@@ -12,14 +12,13 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - Properties
     var chatTable: UITableView!
-    var commentsArray = Array<String>()
     var selectedCelebrity: DKCelebrity!
     
     // MARK: - My Stuff
 
     func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
-        let comment = self.commentsArray[indexPath.row]
-        cell.textLabel?.text = comment
+        let comment = self.selectedCelebrity.comments[indexPath.row]
+        cell.textLabel?.text = comment.text
         cell.detailTextLabel?.text = "This is some details"
     }
     
@@ -27,9 +26,6 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func loadView() {
         self.title = self.selectedCelebrity.name
-        self.commentsArray.append("HEY!")
-        self.commentsArray.append("This is awesome")
-        self.commentsArray.append("I'm hungry")
         
         
         let frame = UIScreen.mainScreen().bounds
@@ -75,9 +71,13 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return true
         }
         
-        self.commentsArray.append(comment!)
+        let cmt = DKComment()
+        cmt.text = comment!
+        
+        self.selectedCelebrity.comments.append(cmt)
         self.chatTable.reloadData()
         textField.text = nil
+        
         return true
     }
     
@@ -86,7 +86,7 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - DataSource Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.commentsArray.count // allocate number rows for the table view
+        return self.selectedCelebrity.comments.count // allocate number rows for the table view
     }
     
     
@@ -106,11 +106,11 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        let comment = self.commentsArray[indexPath.row]
-        print("didDeselectRowAtIndexPath: \(comment)")
-        
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+//        let comment = self.commentsArray[indexPath.row]
+//        print("didDeselectRowAtIndexPath: \(comment)")
+//        
+//    }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
