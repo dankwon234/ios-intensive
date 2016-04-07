@@ -16,10 +16,11 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - My Stuff
 
-    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath){
+    func configureCell(cell: DKTableViewCell, indexPath: NSIndexPath){
         let comment = self.selectedCelebrity.comments[indexPath.row]
         cell.textLabel?.text = comment.text
-        cell.detailTextLabel?.text = "This is some details"
+        cell.detailTextLabel?.text = comment.timestamp.description
+        cell.imageView?.image = UIImage(named: self.selectedCelebrity.image)
     }
     
     // MARK: - LifeCycle Methods
@@ -35,6 +36,7 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.chatTable = UITableView(frame: frame, style: .Plain)
         self.chatTable.dataSource = self
         self.chatTable.delegate = self
+        self.chatTable.separatorStyle = .None
         
         let width = frame.size.width
         let chatBox = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 64))
@@ -94,13 +96,13 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cellId = "cellId"
         
         // REUSE CELL:
-        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) {
+        if let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? DKTableViewCell {
             self.configureCell(cell, indexPath: indexPath)
             return cell
         }
 
         // CREATE NEW CELL:
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellId)
+        let cell = DKTableViewCell(style: .Subtitle, reuseIdentifier: cellId)
         self.configureCell(cell, indexPath: indexPath)
         return cell
     }

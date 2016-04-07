@@ -17,6 +17,8 @@
 		0C9238841CB544950026C6D8 /* taylor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9238811CB544950026C6D8 /* taylor@2x.png */; };
 		0CDD131B1CB69A3900296014 /* DKCelebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD131A1CB69A3900296014 /* DKCelebrity.swift */; };
 		0CDD131D1CB6A4E100296014 /* DKComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD131C1CB6A4E100296014 /* DKComment.swift */; };
+		0CDD13201CB6ACBB00296014 /* DKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDD131F1CB6ACBB00296014 /* DKTableViewCell.swift */; };
+		0CDD13221CB6B1A700296014 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDD13211CB6B1A700296014 /* star@2x.png */; };
 		0CF275941CB55A2300FBD701 /* DKChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF275931CB55A2300FBD701 /* DKChatViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		0C9238811CB544950026C6D8 /* taylor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taylor@2x.png"; sourceTree = "<group>"; };
 		0CDD131A1CB69A3900296014 /* DKCelebrity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKCelebrity.swift; sourceTree = "<group>"; };
 		0CDD131C1CB6A4E100296014 /* DKComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKComment.swift; sourceTree = "<group>"; };
+		0CDD131F1CB6ACBB00296014 /* DKTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKTableViewCell.swift; sourceTree = "<group>"; };
+		0CDD13211CB6B1A700296014 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		0CF275931CB55A2300FBD701 /* DKChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,8 +70,9 @@
 		0C92386B1CB541AE0026C6D8 /* celebrities */ = {
 			isa = PBXGroup;
 			children = (
-				0CDD13191CB699E500296014 /* models */,
 				0C92387E1CB544950026C6D8 /* images */,
+				0CDD131E1CB6AC1100296014 /* views */,
+				0CDD13191CB699E500296014 /* models */,
 				0C92386C1CB541AE0026C6D8 /* AppDelegate.swift */,
 				0C92386E1CB541AE0026C6D8 /* ViewController.swift */,
 				0CF275931CB55A2300FBD701 /* DKChatViewController.swift */,
@@ -82,6 +87,7 @@
 		0C92387E1CB544950026C6D8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0CDD13211CB6B1A700296014 /* star@2x.png */,
 				0C92387F1CB544950026C6D8 /* leonard@2x.png */,
 				0C9238801CB544950026C6D8 /* rihanna@2x.png */,
 				0C9238811CB544950026C6D8 /* taylor@2x.png */,
@@ -96,6 +102,14 @@
 				0CDD131C1CB6A4E100296014 /* DKComment.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		0CDD131E1CB6AC1100296014 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				0CDD131F1CB6ACBB00296014 /* DKTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +172,7 @@
 			files = (
 				0C9238821CB544950026C6D8 /* leonard@2x.png in Resources */,
 				0C9238841CB544950026C6D8 /* taylor@2x.png in Resources */,
+				0CDD13221CB6B1A700296014 /* star@2x.png in Resources */,
 				0C9238771CB541AE0026C6D8 /* LaunchScreen.storyboard in Resources */,
 				0C9238741CB541AE0026C6D8 /* Assets.xcassets in Resources */,
 				0C9238831CB544950026C6D8 /* rihanna@2x.png in Resources */,
@@ -174,6 +189,7 @@
 			files = (
 				0C92386F1CB541AE0026C6D8 /* ViewController.swift in Sources */,
 				0CDD131D1CB6A4E100296014 /* DKComment.swift in Sources */,
+				0CDD13201CB6ACBB00296014 /* DKTableViewCell.swift in Sources */,
 				0CF275941CB55A2300FBD701 /* DKChatViewController.swift in Sources */,
 				0CDD131B1CB69A3900296014 /* DKCelebrity.swift in Sources */,
 				0C92386D1CB541AE0026C6D8 /* AppDelegate.swift in Sources */,
