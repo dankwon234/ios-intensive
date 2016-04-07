@@ -118,28 +118,23 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-//        let comment = self.commentsArray[indexPath.row]
-//        print("didDeselectRowAtIndexPath: \(comment)")
-//        
-//    }
-    
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-//        let comment = self.selectedCelebrity.comments[indexPath.row]
-//        let commentText = NSString(string: comment.text)
-//        let size =  commentText.boundingRectWithSize(CGSize(width: tableView.frame.width, height: 100),
-//                                                                         options: NSStringDrawingOptions.UsesLineFragmentOrigin,
-//                                                                         attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
-//                                                                         context: nil).size
-//        
-//        
-//        
-//        return size.height+30
+        let comment = self.selectedCelebrity.comments[indexPath.row]
+        let commentText = NSString(string: comment.text)
+        
+        let rect = commentText.boundingRectWithSize(CGSizeMake(tableView.frame.size.width-80, 100),
+                                                    options: .UsesLineFragmentOrigin,
+                                                    attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)],
+                                                    context: nil)
         
         
-        return 88.0
+        print("HEIGHT: \(rect.size.height)")
+        if (rect.size.height < 44){
+            return 88
+        }
+        
+        return rect.size.height+88
     }
     
     

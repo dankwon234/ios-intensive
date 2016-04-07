@@ -19,6 +19,9 @@ class DKTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let frame = UIScreen.mainScreen().bounds
+        self.textLabel?.font = UIFont.systemFontOfSize(14)
+        self.textLabel?.numberOfLines = 0 // unlimited number of lines
+        self.textLabel?.lineBreakMode  = .ByWordWrapping
         
         self.selectionStyle = .None
         
@@ -36,7 +39,7 @@ class DKTableViewCell: UITableViewCell {
         
         for var i in 0..<3{
             let offset = frame.size.width-24*(CGFloat(i)+1)-4
-            let starIcon = UIImageView(frame: CGRect(x: offset, y: 4, width: 24, height: 24))
+            let starIcon = UIImageView(frame: CGRect(x: offset, y: 2, width: 24, height: 24))
             starIcon.image = UIImage(named: "star.png")
             self.contentView.addSubview(starIcon)
         }
