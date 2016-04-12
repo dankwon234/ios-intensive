@@ -129,12 +129,14 @@ class DKChatViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                                     context: nil)
         
         
-        print("HEIGHT: \(rect.size.height)")
-        if (rect.size.height < 44){
-            return 88
-        }
+        return rect.size.height+64
         
-        return rect.size.height+88
+//        print("HEIGHT: \(rect.size.height)")
+//        if (rect.size.height < 44){
+//            return 88
+//        }
+//        
+//        return rect.size.height+88
     }
     
     
