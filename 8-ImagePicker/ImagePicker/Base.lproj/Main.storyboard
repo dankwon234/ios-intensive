@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwJ-ov-JDS">
+                                <rect key="frame" x="258" y="171" width="85" height="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePicture" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZ2-lV-x7y"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="STS-4k-O4x">
+                                <rect key="frame" x="180" y="227" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="a7U-VK-plh"/>
+                                    <constraint firstAttribute="width" constant="240" id="qjQ-SS-GkE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UE-09-db7">
+                                <rect key="frame" x="277" y="381" width="47" height="30"/>
+                                <state key="normal" title="upload"/>
+                                <connections>
+                                    <action selector="uploadImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="yH9-Yv-7W7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="STS-4k-O4x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4tT-QI-1uQ"/>
+                            <constraint firstItem="uwJ-ov-JDS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="151" id="8EF-Xp-0YP"/>
+                            <constraint firstItem="7UE-09-db7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HFq-Yt-TCe"/>
+                            <constraint firstItem="7UE-09-db7" firstAttribute="top" secondItem="STS-4k-O4x" secondAttribute="bottom" constant="26" id="T3A-hr-cEq"/>
+                            <constraint firstItem="STS-4k-O4x" firstAttribute="top" secondItem="uwJ-ov-JDS" secondAttribute="bottom" constant="26" id="quP-rS-2aW"/>
+                            <constraint firstItem="uwJ-ov-JDS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vMP-Ba-mYu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectedImageView" destination="STS-4k-O4x" id="0gg-qZ-t79"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

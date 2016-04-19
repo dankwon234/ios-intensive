@@ -11,6 +11,11 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
+    
+    func uploadFile(){
+//        Alamofire.r
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
