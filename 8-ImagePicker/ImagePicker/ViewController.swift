@@ -62,7 +62,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func uplaodImageData(requestURL: String, postData:[String:AnyObject], successHandler: (String) -> (),failureHandler: (String) -> ()) -> () {
-        
         let imgData = postData["data"] as? NSData
         let name = postData["name"] as! String
         
@@ -120,10 +119,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             self.selectedImageView.image = selectedImage
             picker.dismissViewControllerAnimated(true, completion: nil)
-            
-            
         }
-
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
