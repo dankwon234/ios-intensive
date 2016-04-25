@@ -17,8 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         let registerVc = WARegisterViewController()
-        self.window?.rootViewController = registerVc
+        let questionsVc = WAQuestionsViewController()
+        let tabCtr = UITabBarController()
+        tabCtr.viewControllers = [
+            UINavigationController(rootViewController: questionsVc),
+            registerVc
+        ]
+        
+        
+        
+        
+        self.window?.rootViewController = tabCtr
         
         self.window?.makeKeyAndVisible()
         

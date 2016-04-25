@@ -12,6 +12,17 @@ import Alamofire
 class WARegisterViewController: WAViewController, UITextFieldDelegate {
     
     var textFields = Array<UITextField>()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.title = "Profile"
+        self.tabBarItem.image = UIImage(named: "profile.png")
+
+    }
 
     override func loadView() {
         let frame = UIScreen.mainScreen().bounds

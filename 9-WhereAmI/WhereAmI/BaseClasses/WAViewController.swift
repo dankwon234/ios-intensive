@@ -19,6 +19,25 @@ class WAViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func shiftView(position: CGFloat){
+        if (self.view.frame.origin.y == position){
+            return
+        }
+        
+        UIView.animateWithDuration(0.25,
+                                   delay: 0,
+                                   options: .CurveEaseInOut,
+                                   animations: {
+                                    var frame = self.view.frame
+                                    frame.origin.y = position
+                                    self.view.frame = frame
+                                    
+            },
+                                   completion: nil)
+        
+    }
+    
+
 
     /*
     // MARK: - Navigation
