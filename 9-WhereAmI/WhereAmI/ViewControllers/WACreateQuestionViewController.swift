@@ -9,8 +9,9 @@
 import UIKit
 import Alamofire
 
-class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
+class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var imagePicker: UIImagePickerController!
     var image: UIImageView!
     var textFields = Array<UITextField>()
     
@@ -31,6 +32,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
         let btnSelectImage = UIButton(frame: CGRect(x: padding, y: y, width: dimension, height: 44))
         btnSelectImage.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
         btnSelectImage.setTitle("Tap to Select Image", forState: .Normal)
+        btnSelectImage.addTarget(self, action: #selector(WACreateQuestionViewController.takePicture(_:)), forControlEvents: .TouchUpInside)
         view.addSubview(btnSelectImage)
         
         
@@ -92,16 +94,79 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
     }
     
     func createQuestion(btn: UIButton){
+        if (self.image.image == nil){
+            let alert = UIAlertController(title: "Missing Image",
+                                          message: "You forgot the image, dummy!",
+                                          preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // request upload string from CDN:
+        let url = "https://media-service.appspot.com/api/upload"
+        Alamofire.request(.GET, url, parameters: nil).responseJSON { response in
+            if let JSON = response.result.value as? Dictionary<String, AnyObject>{
+                
+                if let upload = JSON["upload"] as? String {
+                    print("\(upload)")
+                    let data = UIImageJPEGRepresentation(self.image.image!, 0.5)
+                    let pkg = ["name":"image.jpg", "data":data!]
+                    self.uploadImage(upload, postData: pkg)
+                }
+            }
+            
+        }
+    }
+    
+    func uploadImage(requestURL: String, postData:[String: AnyObject]){
+        let name = postData["name"] as! String
+        let imgData = postData["data"] as? NSData
+        
+        Alamofire.upload(.POST, requestURL,
+                         multipartFormData: { multipartFormData in
+                            multipartFormData.appendBodyPart(data: imgData!, name: "file", fileName: name, mimeType: "image/jpeg")
+            },
+                         encodingCompletion: { encodingResult in
+                            print("Completion: \(encodingResult)")
+                            switch encodingResult {
+                            case .Success(let upload, _, _):
+                                upload.responseJSON { response in
+                                    print("UPLOAD RESPONSE: \(response)")
+                                    if let JSON = response.result.value as? Dictionary<String, AnyObject>{
+                                        print("UPLOAD DONE: \(JSON)")
+                                        if let imageInfo = JSON["image"] as? Dictionary<String, AnyObject> {
+                                            print("\(imageInfo)")
+                                            
+                                            if let imageId = imageInfo["id"] as? String{
+                                                self.submitQuestion(imageId)
+                                                
+                                                
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            case .Failure(let encodingError):
+                                print("UPLOAD FAIL \(encodingError): ")
+                            }
+            }
+        )
+    }
+    
+    func submitQuestion(imageKey: String){
         print("createQuestion: ")
         
         var params = Dictionary<String, AnyObject>()
+        params["image"] = imageKey
         var options = Array<String>()
         
         var valid = true
         for i in 0..<self.textFields.count {
             let textField = self.textFields[i]
             let option = textField.text!
-//            print("\(option)")
             if (option.characters.count == 0){ // empty field, do not continue!
                 valid = false
                 break
@@ -130,9 +195,22 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
             }
             
         }
-
-    
     }
+    
+    func takePicture(sender: UIButton){
+        print("takePicture")
+        
+        let actionSheet = UIActionSheet(title: "Select Source",
+                                        delegate: self,
+                                        cancelButtonTitle: "Cancel",
+                                        destructiveButtonTitle: nil,
+                                        otherButtonTitles: "Camera", "Photo Library")
+        
+        actionSheet.frame = CGRectMake(0, 150, self.view.frame.size.width, 100)
+        actionSheet.actionSheetStyle = .BlackOpaque
+        actionSheet.showInView(UIApplication.sharedApplication().keyWindow!)
+    }
+    
     
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -156,6 +234,47 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if let selectedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            print("didFinishPickingMediaWithInfo: \(selectedImage)")
+            self.image.image = selectedImage
+            picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController){
+        print("imagePickerControllerDidCancel")
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: ActionSheet Delegate
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        print("clickedButtonAtIndex: \(buttonIndex)")
+        
+        var soureType: UIImagePickerControllerSourceType
+        
+        if(buttonIndex == 1){
+            soureType = .Camera
+        }
+        else if (buttonIndex == 2){
+            soureType = .PhotoLibrary
+        }
+        else {
+            return
+        }
+        
+        self.imagePicker = UIImagePickerController()
+        self.imagePicker.sourceType = soureType
+        self.imagePicker.allowsEditing = true
+        self.imagePicker.delegate = self
+        self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
