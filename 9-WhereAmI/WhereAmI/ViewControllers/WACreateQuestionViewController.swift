@@ -14,6 +14,8 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
     var imagePicker: UIImagePickerController!
     var image: UIImageView!
     var textFields = Array<UITextField>()
+    var loadingScreen: UIView!
+    var spinner: UIActivityIndicatorView!
     
     override func loadView() {
         let frame = UIScreen.mainScreen().bounds
@@ -69,6 +71,16 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WACreateQuestionViewController.dismissKeyboard(_:)))
         view.addGestureRecognizer(tapGesture)
         
+        self.loadingScreen = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        self.loadingScreen.backgroundColor = .blackColor()
+        self.loadingScreen.alpha = 0
+        view.addSubview(self.loadingScreen)
+        
+        self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        self.spinner.center = view.center
+        self.spinner.alpha = 0
+        view.addSubview(self.spinner)
+        
         self.view = view
     }
     
@@ -104,6 +116,11 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
             return
         }
         
+        self.dismissKeyboard(nil)
+        self.loadingScreen.alpha = 0.6
+        self.spinner.alpha = 1.0
+        self.spinner.startAnimating()
+
         // request upload string from CDN:
         let url = "https://media-service.appspot.com/api/upload"
         Alamofire.request(.GET, url, parameters: nil).responseJSON { response in
@@ -182,6 +199,9 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
         }
         
         if (valid == false){
+            self.loadingScreen.alpha = 0
+            self.spinner.alpha = 0
+            self.spinner.stopAnimating()
             print("Cannot Submit Question")
         }
         
@@ -192,6 +212,16 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
         Alamofire.request(.POST, url, parameters: params).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
                 print("\(JSON)")
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.loadingScreen.alpha = 0
+                    self.spinner.alpha = 0
+                    self.spinner.stopAnimating()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                })
+                
             }
             
         }
