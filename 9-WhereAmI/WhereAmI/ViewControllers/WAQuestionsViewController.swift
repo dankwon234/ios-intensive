@@ -32,7 +32,7 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
     }
     
     func notificationReceived(note: NSNotification){
-        print("notificationReceived")
+//        print("notificationReceived")
         self.collectionView.reloadData()
         
     }
@@ -79,6 +79,11 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     func createQuestion(btn: UIBarButtonItem){
         print("createQuestion")
         let createQuestionVc = WACreateQuestionViewController()
@@ -105,6 +110,15 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
         cell.imageView.image = nil
         question.fetchImage()
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        let question = self.questions[indexPath.row]
+        print(question.answer)
+        
+        let questionVc = WAQuestionViewController()
+        questionVc.question = question
+        self.navigationController?.pushViewController(questionVc, animated: true)
         
     }
     

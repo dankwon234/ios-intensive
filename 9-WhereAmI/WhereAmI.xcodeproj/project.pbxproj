@@ -18,6 +18,7 @@
 		0CC434511CC9104E00C001A1 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC434501CC9104E00C001A1 /* profile@2x.png */; };
 		0CC434551CC9128F00C001A1 /* question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC434541CC9128F00C001A1 /* question@2x.png */; };
 		0CC434571CC91D9100C001A1 /* WACreateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC434561CC91D9100C001A1 /* WACreateQuestionViewController.swift */; };
+		0CC532F91CD0F20800B615B8 /* WAQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC532F81CD0F20800B615B8 /* WAQuestionViewController.swift */; };
 		2E87C18D0237AE93696B0D67 /* Pods_WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3BAA9C0DD2154A0646BDB1 /* Pods_WhereAmI.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0CC434501CC9104E00C001A1 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
 		0CC434541CC9128F00C001A1 /* question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question@2x.png"; sourceTree = "<group>"; };
 		0CC434561CC91D9100C001A1 /* WACreateQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WACreateQuestionViewController.swift; sourceTree = "<group>"; };
+		0CC532F81CD0F20800B615B8 /* WAQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WAQuestionViewController.swift; sourceTree = "<group>"; };
 		234637BECBA062E0F089761F /* Pods-WhereAmI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAmI.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereAmI/Pods-WhereAmI.release.xcconfig"; sourceTree = "<group>"; };
 		57B3D7DB9D3AFF49B322ED8D /* Pods-WhereAmI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAmI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereAmI/Pods-WhereAmI.debug.xcconfig"; sourceTree = "<group>"; };
 		AB3BAA9C0DD2154A0646BDB1 /* Pods_WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				0C90DA551CCFA202009376A5 /* WACollectionViewFlowLayout.swift */,
 				0C90DA571CCFA8D7009376A5 /* WACollectionViewCell.swift */,
 				0CC434561CC91D9100C001A1 /* WACreateQuestionViewController.swift */,
+				0CC532F81CD0F20800B615B8 /* WAQuestionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				0CC434571CC91D9100C001A1 /* WACreateQuestionViewController.swift in Sources */,
 				0C90DA5B1CCFB073009376A5 /* WAQuestion.swift in Sources */,
 				0C90DA581CCFA8D7009376A5 /* WACollectionViewCell.swift in Sources */,
+				0CC532F91CD0F20800B615B8 /* WAQuestionViewController.swift in Sources */,
 				0C8829CC1CC7DA8C004085BE /* WAViewController.swift in Sources */,
 				0C8829CF1CC7DB9F004085BE /* WARegisterViewController.swift in Sources */,
 				0CBB8B2B1CC7D42800082B5A /* AppDelegate.swift in Sources */,
