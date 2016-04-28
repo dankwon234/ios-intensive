@@ -86,7 +86,7 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(WAQuestionsViewController.createQuestion(_:)))
         
-        let url = "http://localhost:3000/api/question"
+        let url = Constants.baseUrl+"/api/question"
         Alamofire.request(.GET, url, parameters: nil).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
                 if let results = JSON["results"] as? Array<Dictionary<String, AnyObject>>{

@@ -77,7 +77,10 @@ class WARegisterViewController: WAViewController, UITextFieldDelegate {
         }
         
         print("registerUser: \(profileInfo)")
-        let url = "http://localhost:3000/api/profile"
+//        let url = "http://localhost:3000/api/profile"
+//        let url = "https://ios-where-am-i.herokuapp.com/api/profile"
+        
+        let url = Constants.baseUrl+"/api/profile"
         Alamofire.request(.POST, url, parameters: profileInfo).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
                 print("\(JSON)")

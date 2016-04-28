@@ -209,7 +209,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
         params["options"] = options
         print("Submit Question: \(params)")
         
-        let url = "http://localhost:3000/api/question"
+        let url = Constants.baseUrl+"/api/question"
         Alamofire.request(.POST, url, parameters: params).responseJSON { response in
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
                 print("\(JSON)")

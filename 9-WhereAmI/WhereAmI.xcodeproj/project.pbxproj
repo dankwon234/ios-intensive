@@ -12,6 +12,7 @@
 		0C90DA561CCFA202009376A5 /* WACollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90DA551CCFA202009376A5 /* WACollectionViewFlowLayout.swift */; };
 		0C90DA581CCFA8D7009376A5 /* WACollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90DA571CCFA8D7009376A5 /* WACollectionViewCell.swift */; };
 		0C90DA5B1CCFB073009376A5 /* WAQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90DA5A1CCFB073009376A5 /* WAQuestion.swift */; };
+		0CB92F701CD27B91001CF82C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB92F6F1CD27B91001CF82C /* Constants.swift */; };
 		0CBB8B2B1CC7D42800082B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB8B2A1CC7D42800082B5A /* AppDelegate.swift */; };
 		0CBB8B321CC7D42800082B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB8B311CC7D42800082B5A /* Assets.xcassets */; };
 		0CC4344C1CC908A000C001A1 /* WAQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4344B1CC908A000C001A1 /* WAQuestionsViewController.swift */; };
@@ -30,6 +31,7 @@
 		0C90DA551CCFA202009376A5 /* WACollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WACollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		0C90DA571CCFA8D7009376A5 /* WACollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WACollectionViewCell.swift; sourceTree = "<group>"; };
 		0C90DA5A1CCFB073009376A5 /* WAQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WAQuestion.swift; sourceTree = "<group>"; };
+		0CB92F6F1CD27B91001CF82C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CBB8B271CC7D42800082B5A /* WhereAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBB8B2A1CC7D42800082B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CBB8B311CC7D42800082B5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				0CBB8B2A1CC7D42800082B5A /* AppDelegate.swift */,
+				0CB92F6F1CD27B91001CF82C /* Constants.swift */,
 				0C90DA591CCFB01D009376A5 /* models */,
 				0CC4344D1CC90E6600C001A1 /* images */,
 				0C8829CD1CC7DB89004085BE /* ViewControllers */,
@@ -276,6 +279,7 @@
 				0CC434571CC91D9100C001A1 /* WACreateQuestionViewController.swift in Sources */,
 				0C90DA5B1CCFB073009376A5 /* WAQuestion.swift in Sources */,
 				0C90DA581CCFA8D7009376A5 /* WACollectionViewCell.swift in Sources */,
+				0CB92F701CD27B91001CF82C /* Constants.swift in Sources */,
 				0CC532F91CD0F20800B615B8 /* WAQuestionViewController.swift in Sources */,
 				0C8829CC1CC7DA8C004085BE /* WAViewController.swift in Sources */,
 				0C8829CF1CC7DB9F004085BE /* WARegisterViewController.swift in Sources */,
