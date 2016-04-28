@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+
 class WAQuestion: NSObject {
     
     var answer: String!
@@ -16,6 +17,8 @@ class WAQuestion: NSObject {
     var options: Array<String>!
     var imageData: UIImage!
     var isFetching = false
+    var status = 0 // 0=unanswered, 1=answered correctly, 2=answered incorrectly
+
     
     func populate(info: Dictionary<String, AnyObject>){
         if let _answer = info["answer"] as? String {

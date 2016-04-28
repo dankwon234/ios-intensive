@@ -98,9 +98,11 @@ class WAQuestionViewController: WAViewController {
         
         if (selectedOption == self.question.answer){
             print("CORRECT")
+            self.question.status = 1
         }
         else {
             print("INCORRECT")
+            self.question.status = 2
         }
         
         self.navigationController?.popViewControllerAnimated(true)

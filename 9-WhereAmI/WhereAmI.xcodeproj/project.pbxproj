@@ -19,6 +19,8 @@
 		0CC434551CC9128F00C001A1 /* question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CC434541CC9128F00C001A1 /* question@2x.png */; };
 		0CC434571CC91D9100C001A1 /* WACreateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC434561CC91D9100C001A1 /* WACreateQuestionViewController.swift */; };
 		0CC532F91CD0F20800B615B8 /* WAQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC532F81CD0F20800B615B8 /* WAQuestionViewController.swift */; };
+		0CEA964C1CD2495F00E73BB3 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CEA964B1CD2495F00E73BB3 /* checkmark@2x.png */; };
+		0CEA964E1CD2496400E73BB3 /* xmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CEA964D1CD2496400E73BB3 /* xmark@2x.png */; };
 		2E87C18D0237AE93696B0D67 /* Pods_WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3BAA9C0DD2154A0646BDB1 /* Pods_WhereAmI.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		0CC434541CC9128F00C001A1 /* question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question@2x.png"; sourceTree = "<group>"; };
 		0CC434561CC91D9100C001A1 /* WACreateQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WACreateQuestionViewController.swift; sourceTree = "<group>"; };
 		0CC532F81CD0F20800B615B8 /* WAQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WAQuestionViewController.swift; sourceTree = "<group>"; };
+		0CEA964B1CD2495F00E73BB3 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
+		0CEA964D1CD2496400E73BB3 /* xmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xmark@2x.png"; sourceTree = "<group>"; };
 		234637BECBA062E0F089761F /* Pods-WhereAmI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAmI.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereAmI/Pods-WhereAmI.release.xcconfig"; sourceTree = "<group>"; };
 		57B3D7DB9D3AFF49B322ED8D /* Pods-WhereAmI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereAmI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereAmI/Pods-WhereAmI.debug.xcconfig"; sourceTree = "<group>"; };
 		AB3BAA9C0DD2154A0646BDB1 /* Pods_WhereAmI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereAmI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				0CC434541CC9128F00C001A1 /* question@2x.png */,
+				0CEA964B1CD2495F00E73BB3 /* checkmark@2x.png */,
+				0CEA964D1CD2496400E73BB3 /* xmark@2x.png */,
 				0CC434501CC9104E00C001A1 /* profile@2x.png */,
 			);
 			path = images;
@@ -204,6 +210,8 @@
 			files = (
 				0CC434551CC9128F00C001A1 /* question@2x.png in Resources */,
 				0CBB8B321CC7D42800082B5A /* Assets.xcassets in Resources */,
+				0CEA964C1CD2495F00E73BB3 /* checkmark@2x.png in Resources */,
+				0CEA964E1CD2496400E73BB3 /* xmark@2x.png in Resources */,
 				0CC434511CC9104E00C001A1 /* profile@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
