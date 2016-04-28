@@ -16,6 +16,7 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
     var textFields = Array<UITextField>()
     var loadingScreen: UIView!
     var spinner: UIActivityIndicatorView!
+
     
     override func loadView() {
         let frame = UIScreen.mainScreen().bounds
@@ -213,14 +214,29 @@ class WACreateQuestionViewController: WAViewController, UITextFieldDelegate, UIA
             if let JSON = response.result.value as? Dictionary<String, AnyObject>{
                 print("\(JSON)")
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.loadingScreen.alpha = 0
-                    self.spinner.alpha = 0
-                    self.spinner.stopAnimating()
-                    
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    
-                })
+                if let result = JSON["result"] as? Dictionary<String, AnyObject>{
+                    dispatch_async(dispatch_get_main_queue(), {
+                        let q = WAQuestion()
+                        q.populate(result)
+                        
+                        let notificationCenter = NSNotificationCenter.defaultCenter()
+                        let notification = NSNotification(name: "QuestionCreated", object: nil, userInfo: ["question":q])
+                        notificationCenter.postNotification(notification)
+
+//                        print("QUESTIONS: \(self.currentQuestions.count)")
+                        
+                        self.loadingScreen.alpha = 0
+                        self.spinner.alpha = 0
+                        self.spinner.stopAnimating()
+                        
+                        self.dismissViewControllerAnimated(true, completion: {
+                            
+                        })
+                        
+                    })
+
+                }
+                
                 
             }
             

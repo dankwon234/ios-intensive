@@ -39,11 +39,29 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
                                        name: "ImageDownloaded",
                                        object: nil)
 
+        notificationCenter.addObserver(self,
+                                       selector: #selector(WAQuestionsViewController.questionCreated(_:)),
+                                       name: "QuestionCreated",
+                                       object: nil)
+
+        
+
+
     }
     
     func notificationReceived(note: NSNotification){
 //        print("notificationReceived")
         self.collectionView.reloadData()
+        
+    }
+    
+    func questionCreated(note: NSNotification){
+        print("questionCreated: \(note)")
+        if let question = note.userInfo?["question"] as? WAQuestion {
+            self.questions.append(question)
+            self.collectionView.reloadData()
+        }
+        
         
     }
     
@@ -90,14 +108,15 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("viewWillAppear: \(self.questions.count)")
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
         self.collectionView.reloadData()
     }
-    
+
     func createQuestion(btn: UIBarButtonItem){
-        print("createQuestion")
         let createQuestionVc = WACreateQuestionViewController()
+        print("createQuestion: \(self.questions.count)")
         self.presentViewController(createQuestionVc, animated: true, completion: nil)
     }
     
