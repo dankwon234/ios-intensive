@@ -13,6 +13,9 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
     
     var collectionView: UICollectionView!
     var questions = Array<WAQuestion>()
+    var icons = ["", "checkmark.png", "xmark.png"]
+//    var imageCache = Dictionary<String, UIImage>()
+
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -22,6 +25,13 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title = "Questions"
         self.tabBarItem.image = UIImage(named: "question.png")
+        
+//        for i in 0..<self.icons.count {
+//            let icon = self.icons[i]
+//            if let image = UIImage(named: icon){
+//                self.imageCache[icon] = image
+//            }
+//        }
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self,
@@ -91,35 +101,34 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
         self.presentViewController(createQuestionVc, animated: true, completion: nil)
     }
     
+//    func configureCell(cell: WACollectionViewCell, indexPath :NSIndexPath){
+//        let question = self.questions[indexPath.row]
+//        
+//        let icon = self.icons[question.status]
+//        cell.answerIcon.image = self.imageCache[icon]
+//        cell.answerIcon.alpha = (question.status == 0) ? 0 : 0.6
+//        
+//        if (question.imageData != nil){
+//            cell.imageView.image = question.imageData
+//            return
+//        }
+//        
+//        cell.imageView.image = nil
+//        question.fetchImage()
+//    }
+    
     func configureCell(cell: WACollectionViewCell, indexPath :NSIndexPath){
         let question = self.questions[indexPath.row]
+        cell.answerIcon.image = UIImage(named: self.icons[question.status])
+        cell.answerIcon.alpha = (question.status == 0) ? 0 : 0.6
+        
         if (question.imageData != nil){
             cell.imageView.image = question.imageData
-            if (question.status == 0){
-                cell.answerIcon.alpha = 0
-            }
-            else if (question.status == 1) {
-                cell.answerIcon.alpha = 0.5
-                cell.answerIcon.image = UIImage(named: "checkmark.png")
-            }
-            else {
-                cell.answerIcon.alpha = 0.5
-                cell.answerIcon.image = UIImage(named: "xmark.png")
-            }
+            return
         }
         
         cell.imageView.image = nil
-        if (question.status == 0){
-            cell.answerIcon.alpha = 0
-        }
-        else if (question.status == 1) {
-            cell.answerIcon.alpha = 0.5
-            cell.answerIcon.image = UIImage(named: "checkmark.png")
-        }
-        else {
-            cell.answerIcon.alpha = 0.5
-            cell.answerIcon.image = UIImage(named: "xmark.png")
-        }
+        question.fetchImage()
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -128,43 +137,10 @@ class WAQuestionsViewController: WAViewController, UICollectionViewDataSource, U
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let question = self.questions[indexPath.row]
-        
         let cellId = "cellId"
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! WACollectionViewCell
         
-        if (question.imageData != nil){
-            cell.imageView.image = question.imageData
-            if (question.status == 0){
-                cell.answerIcon.alpha = 0
-            }
-            else if (question.status == 1) {
-                cell.answerIcon.alpha = 0.5
-                cell.answerIcon.image = UIImage(named: "checkmark.png")
-            }
-            else {
-                cell.answerIcon.alpha = 0.5
-                cell.answerIcon.image = UIImage(named: "xmark.png")
-            }
-            
-            return cell
-        }
-        
-        
-        cell.imageView.image = nil
-        if (question.status == 0){
-            cell.answerIcon.alpha = 0
-        }
-        else if (question.status == 1) {
-            cell.answerIcon.alpha = 0.5
-            cell.answerIcon.image = UIImage(named: "checkmark.png")
-        }
-        else {
-            cell.answerIcon.alpha = 0.5
-            cell.answerIcon.image = UIImage(named: "xmark.png")
-        }
-
-        question.fetchImage()
+        self.configureCell(cell, indexPath: indexPath)
         return cell
     }
     
